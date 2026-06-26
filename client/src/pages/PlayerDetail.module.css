@@ -1,0 +1,361 @@
+﻿.hero {
+  background: var(--black);
+  border-bottom: 3px solid var(--team-color, var(--accent));
+  padding: 3rem 0 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.breadLink {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: rgba(242, 240, 235, 0.35);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadLink:hover {
+  color: var(--team-color, var(--accent));
+}
+
+.breadSep {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: rgba(242, 240, 235, 0.15);
+}
+
+.breadCurrent {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--team-color, var(--accent));
+}
+
+.heroInner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* ── Photo ── */
+.photoWrap {
+  width: 160px;
+  height: 180px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  filter: grayscale(30%);
+  transition: filter 0.3s;
+}
+
+.photoWrap:hover .photo {
+  filter: grayscale(0%);
+}
+
+.photoFallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  color: var(--team-color, var(--accent));
+  opacity: 0.3;
+}
+
+/* ── Info ── */
+.heroInfo {
+  min-width: 0;
+}
+
+.heroMeta {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.roleTag {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: var(--team-color, var(--accent));
+  border: 1px solid var(--team-color, var(--accent));
+  padding: 0.2em 0.6em;
+}
+
+.natTag,
+.ageTag {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: rgba(242, 240, 235, 0.35);
+  letter-spacing: 0.05em;
+}
+
+.gamertag {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  color: var(--white-off);
+  margin: 0 0 0.4rem;
+}
+
+.realName {
+  font-size: 0.85rem;
+  color: rgba(242, 240, 235, 0.45);
+  margin: 0 0 1.25rem;
+}
+
+.teamLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: rgba(242, 240, 235, 0.5);
+  text-decoration: none;
+  border: 1px solid rgba(242, 240, 235, 0.1);
+  padding: 0.4em 0.8em;
+  margin-bottom: 1.25rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.teamLink:hover {
+  border-color: var(--team-color, var(--accent));
+  color: var(--white-off);
+}
+
+.teamLogo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.bio {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: rgba(242, 240, 235, 0.55);
+  max-width: 520px;
+  margin: 0;
+}
+
+/* ── Stats Panel ── */
+.statsPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid rgba(242, 240, 235, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  min-width: 140px;
+  flex-shrink: 0;
+}
+
+.stat {
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  letter-spacing: -0.02em;
+  color: var(--team-color, var(--accent));
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.statLabel {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: rgba(242, 240, 235, 0.35);
+}
+
+.statDivider {
+  height: 1px;
+  background: rgba(242, 240, 235, 0.08);
+}
+
+/* ── Sections ── */
+.section {
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  color: var(--white-off);
+  margin: 0 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sectionLine {
+  display: block;
+  width: 2.5rem;
+  height: 3px;
+  flex-shrink: 0;
+}
+
+/* ── Timeline ── */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(242, 240, 235, 0.06);
+}
+
+.timelineItem {
+  display: grid;
+  grid-template-columns: 56px 20px 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid rgba(242, 240, 235, 0.06);
+}
+
+.timelineWin .timelineYear {
+  color: var(--team-color, var(--accent));
+}
+
+.timelineYear {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  color: rgba(242, 240, 235, 0.3);
+  text-align: right;
+}
+
+.timelineDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(242, 240, 235, 0.15);
+  justify-self: center;
+}
+
+.timelineContent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.timelineEvent {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  color: var(--white-off);
+}
+
+.timelineTeam {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: rgba(242, 240, 235, 0.35);
+  letter-spacing: 0.08em;
+}
+
+.timelinePlacement {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: rgba(242, 240, 235, 0.5);
+  margin-left: auto;
+}
+
+/* ── Socials ── */
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: rgba(242, 240, 235, 0.55);
+  text-decoration: none;
+  border: 1px solid rgba(242, 240, 235, 0.1);
+  padding: 0.6rem 1rem;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.socialLink:hover {
+  border-color: var(--team-color, var(--accent));
+  color: var(--white-off);
+  background: rgba(212, 160, 23, 0.05);
+}
+
+.socialIcon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.socialIcon svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.socialLabel {
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+  }
+
+  .photoWrap {
+    width: 100%;
+    height: 200px;
+  }
+
+  .statsPanel {
+    flex-direction: row;
+    min-width: 0;
+  }
+
+  .stat {
+    flex: 1;
+    padding: 1rem;
+  }
+
+  .statDivider {
+    width: 1px;
+    height: auto;
+  }
+}

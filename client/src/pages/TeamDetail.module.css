@@ -1,0 +1,453 @@
+﻿.hero {
+  background: var(--black);
+  border-bottom: 3px solid var(--team-color, var(--accent));
+  padding: 3rem 0 2.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.heroBorder {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--team-color, var(--accent));
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: rgba(242, 240, 235, 0.4);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  transition: color 0.2s;
+}
+
+.back:hover {
+  color: var(--team-color, var(--accent));
+}
+
+.heroInner {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.heroLogo {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.heroLogo img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+
+.heroLogoFallback {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--team-color, var(--accent));
+  letter-spacing: 0.05em;
+}
+
+.heroInfo {
+  flex: 1;
+}
+
+.heroMeta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.category {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--team-color, var(--accent));
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--team-color, var(--accent));
+  padding: 0.25em 0.6em;
+}
+
+.region,
+.founded {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: rgba(242, 240, 235, 0.35);
+}
+
+.heroName {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: var(--white-off);
+  margin: 0 0 0.5rem;
+}
+
+.heroCity {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: rgba(242, 240, 235, 0.4);
+  letter-spacing: 0.1em;
+  margin: 0 0 1rem;
+}
+
+.heroBio {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: rgba(242, 240, 235, 0.6);
+  max-width: 600px;
+  margin: 0;
+}
+
+/* ── Sections ── */
+.section {
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  color: var(--white-off);
+  margin: 0 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sectionLine {
+  display: block;
+  width: 3rem;
+  height: 3px;
+  background: var(--team-color, var(--accent));
+  flex-shrink: 0;
+}
+
+/* ── Palmarès ── */
+.palmaresList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(242, 240, 235, 0.08);
+}
+
+.palmaresItem {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(242, 240, 235, 0.06);
+}
+
+.trophyIcon {
+  font-size: 1.5rem;
+}
+
+.palmaresEvent {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  color: var(--white-off);
+}
+
+.palmaresYear {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: rgba(242, 240, 235, 0.4);
+  letter-spacing: 0.08em;
+  margin-top: 0.2rem;
+}
+
+/* ── Histoire ── */
+.historyBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 740px;
+  border-left: 3px solid var(--team-color, var(--accent));
+  padding-left: 2rem;
+}
+
+.historyPara {
+  font-family: var(--font-editorial);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(242, 240, 235, 0.65);
+  margin: 0;
+}
+
+.historyPara:first-child {
+  font-size: 1.15rem;
+  color: rgba(242, 240, 235, 0.8);
+}
+
+/* ── Roster Grid (simple player cards) ── */
+.rosterGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+  gap: 1px;
+  margin-bottom: 2rem;
+}
+
+.playerCard {
+  background: #080808;
+  border: 1px solid rgba(242, 240, 235, 0.06);
+  position: relative;
+  overflow: hidden;
+  transition:
+    border-color 0.25s ease,
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.playerCard:hover {
+  border-color: var(--team-color, var(--accent));
+  transform: translateY(-3px);
+  z-index: 1;
+}
+
+.playerCard:hover .playerAccent {
+  opacity: 1;
+}
+
+.playerCard:hover .playerPhoto img {
+  filter: grayscale(0%) brightness(1.05);
+  transform: scale(1.04);
+}
+
+.playerPhoto {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.025);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playerPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  filter: grayscale(50%);
+  transition: filter 0.35s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.playerInitial {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 5rem;
+  color: var(--team-color, var(--accent));
+  opacity: 0.15;
+}
+
+.playerInfo {
+  padding: 1rem 1.1rem 1.25rem;
+  border-top: 1px solid rgba(242, 240, 235, 0.05);
+}
+
+.playerRole {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  color: var(--team-color, var(--accent));
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.playerGamertag {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+  color: var(--white-off);
+  margin: 0 0 0.2rem;
+  line-height: 1;
+}
+
+.playerName {
+  display: block;
+  font-size: 0.72rem;
+  color: rgba(242, 240, 235, 0.4);
+  margin-bottom: 0.4rem;
+}
+
+.playerMeta {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.playerNat {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: rgba(242, 240, 235, 0.3);
+  letter-spacing: 0.1em;
+  border: 1px solid rgba(242, 240, 235, 0.1);
+  padding: 0.15em 0.4em;
+}
+
+.playerAge {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: rgba(242, 240, 235, 0.25);
+  letter-spacing: 0.05em;
+}
+
+.playerAccent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--team-color, var(--accent));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.playerCard {
+  display: flex;
+  flex-direction: column;
+  background: #0a0a0a;
+  border: 1px solid rgba(242, 240, 235, 0.06);
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s;
+  overflow: hidden;
+  position: relative;
+}
+
+.playerCard:hover {
+  border-color: var(--team-color, var(--accent));
+  transform: translateY(-2px);
+}
+
+.playerCard:hover .playerArrow {
+  color: var(--team-color, var(--accent));
+  transform: translateX(3px);
+}
+
+.playerPhoto {
+  width: 100%;
+  aspect-ratio: 3/2;
+  background: rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playerPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  filter: grayscale(50%);
+  transition: filter 0.25s, transform 0.25s;
+}
+
+.playerCard:hover .playerPhoto img {
+  filter: grayscale(0%);
+  transform: scale(1.03);
+}
+
+.playerPhotoFallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--team-color, var(--accent));
+  opacity: 0.3;
+}
+
+.playerInfo {
+  padding: 1.25rem;
+  flex: 1;
+}
+
+.playerRole {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: var(--team-color, var(--accent));
+  margin-bottom: 0.3rem;
+}
+
+.playerGamertag {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.03em;
+  color: var(--white-off);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.playerRealName {
+  font-size: 0.75rem;
+  color: rgba(242, 240, 235, 0.45);
+  margin-bottom: 0.4rem;
+}
+
+.playerNat {
+  font-size: 1rem;
+}
+
+.playerTrophies {
+  padding: 0 1.25rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.playerArrow {
+  position: absolute;
+  bottom: 1rem;
+  right: 1.25rem;
+  font-size: 1rem;
+  color: rgba(242, 240, 235, 0.15);
+  transition: color 0.2s, transform 0.2s;
+}
+
+@media (max-width: 640px) {
+  .heroInner {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .heroLogo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .heroLogo img {
+    width: 60px;
+    height: 60px;
+  }
+}

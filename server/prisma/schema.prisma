@@ -1,0 +1,151 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Article {
+  id          Int       @id @default(autoincrement())
+  slug        String    @unique @db.VarChar(255)
+  title       String    @db.VarChar(500)
+  summary     String?   @db.Text
+  content     String?   @db.LongText
+  imageUrl    String?   @map("image_url") @db.VarChar(1000)
+  sourceUrl   String?   @map("source_url") @db.VarChar(1000)
+  sourceName  String?   @map("source_name") @db.VarChar(255)
+  category    Category
+  tags        Json?
+  publishedAt DateTime? @map("published_at")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@map("articles")
+}
+
+model Team {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(255)
+  slug      String   @unique @db.VarChar(255)
+  logoUrl   String?  @map("logo_url") @db.VarChar(1000)
+  category  Category
+  region    String?  @db.VarChar(100)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  players     Player[]
+  matchesAsA  MatchResult[] @relation("TeamA")
+  matchesAsB  MatchResult[] @relation("TeamB")
+
+  @@map("teams")
+}
+
+model Player {
+  id            Int      @id @default(autoincrement())
+  gamertag      String   @unique @db.VarChar(255)
+  realName      String?  @map("real_name") @db.VarChar(255)
+  teamId        Int?     @map("team_id")
+  role          String?  @db.VarChar(100)
+  nationality   String?  @db.VarChar(100)
+  twitterHandle String?  @map("twitter_handle") @db.VarChar(255)
+  imageUrl      String?  @map("image_url") @db.VarChar(1000)
+  imageSource   String?  @map("image_source") @db.VarChar(50)
+  updatedAt     DateTime @default(now()) @updatedAt @map("updated_at")
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  team Team? @relation(fields: [teamId], references: [id], onDelete: SetNull)
+
+  @@map("players")
+}
+
+model MatchResult {
+  id        Int       @id @default(autoincrement())
+  teamAId   Int       @map("team_a_id")
+  teamBId   Int       @map("team_b_id")
+  scoreA    Int?      @map("score_a") @db.TinyInt
+  scoreB    Int?      @map("score_b") @db.TinyInt
+  eventName String?   @map("event_name") @db.VarChar(255)
+  category  Category
+  playedAt  DateTime? @map("played_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  teamA Team @relation("TeamA", fields: [teamAId], references: [id])
+  teamB Team @relation("TeamB", fields: [teamBId], references: [id])
+
+  @@map("match_results")
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique @db.VarChar(255)
+  passwordHash String   @map("password_hash") @db.VarChar(255)
+  role         UserRole @default(editor)
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  @@map("users")
+}
+
+model LeaderboardEntry {
+  id          Int      @id @default(autoincrement())
+  mode        String   @db.VarChar(20)  // 'warzone' | 'mp'
+  rank        Int
+  gamertag    String   @db.VarChar(255)
+  team        String?  @db.VarChar(255)
+  teamSlug    String?  @map("team_slug") @db.VarChar(255)
+  region      String?  @db.VarChar(20)
+  country     String?  @db.VarChar(10)
+  platform    String?  @db.VarChar(20)
+  sr          Int      @default(0)
+  srVar       Int      @default(0) @map("sr_var")
+  rankVar     Int      @default(0) @map("rank_var")
+  kd          Float?
+  wins        Int?
+  gamesPlayed Int?     @map("games_played")
+  source      String   @default("static") @db.VarChar(50)
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@unique([mode, gamertag])
+  @@index([mode, rank])
+  @@map("leaderboard_entries")
+}
+
+model SyncLog {
+  id        Int      @id @default(autoincrement())
+  type      String   @db.VarChar(50)
+  status    String   @db.VarChar(20)
+  count     Int      @default(0)
+  message   String?  @db.Text
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("sync_logs")
+}
+
+model Weapon {
+  id        Int      @id @default(autoincrement())
+  slug      String   @unique @db.VarChar(100)
+  name      String   @db.VarChar(255)
+  type      String?  @db.VarChar(50)   // AR | SMG | Sniper | LMG | Shotgun
+  tier      String?  @db.VarChar(10)   // S | A | B | C
+  rank      Int?
+  role      String?  @db.VarChar(100)  // Long Range | Close Range | Sniper
+  imageUrl  String?  @map("image_url") @db.VarChar(1000)
+  game      String   @default("warzone-bo7") @db.VarChar(50)
+  proPick   Boolean  @default(false) @map("pro_pick")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([game, tier])
+  @@map("weapons")
+}
+
+enum Category {
+  warzone
+  cdl
+}
+
+enum UserRole {
+  admin
+  editor
+}

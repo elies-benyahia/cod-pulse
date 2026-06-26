@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#111"/>
+  <!-- French tricolor accent bar top -->
+  <rect x="0" y="0" width="67" height="5" fill="#002395"/>
+  <rect x="67" y="0" width="66" height="5" fill="#EDEDED"/>
+  <rect x="133" y="0" width="67" height="5" fill="#ED2939"/>
+  <!-- M8 text bold -->
+  <text x="100" y="125" font-family="Arial Black, sans-serif" font-size="80" font-weight="900" fill="#0055A4" text-anchor="middle">M</text>
+  <text x="100" y="125" font-family="Arial Black, sans-serif" font-size="80" font-weight="900" fill="#EDEDED" text-anchor="middle" dx="0">
+    <tspan fill="#0055A4">M</tspan><tspan fill="#EF4135">8</tspan>
+  </text>
+  <!-- Border accent -->
+  <rect x="20" y="135" width="160" height="2" fill="#EF4135" opacity="0.6"/>
+  <text x="100" y="165" font-family="Arial, sans-serif" font-size="11" fill="#aaa" text-anchor="middle" letter-spacing="3">WARZONE</text>
+</svg>

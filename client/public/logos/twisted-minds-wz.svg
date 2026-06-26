@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#080c12"/>
+  <!-- Geometric diamond frame -->
+  <polygon points="100,22 168,80 168,130 100,178 32,130 32,80" fill="none" stroke="#00C8FF" stroke-width="2.5" opacity="0.6"/>
+  <!-- Inner T shape -->
+  <rect x="70" y="55" width="60" height="14" rx="2" fill="#00C8FF"/>
+  <rect x="90" y="55" width="20" height="60" rx="2" fill="#00C8FF"/>
+  <!-- M for Minds -->
+  <text x="100" y="152" font-family="Arial Black, sans-serif" font-size="14" font-weight="900" fill="#00C8FF" text-anchor="middle" letter-spacing="1">TWISTED MINDS</text>
+  <!-- Glow line -->
+  <line x1="40" y1="135" x2="160" y2="135" stroke="#00C8FF" stroke-width="1" opacity="0.4"/>
+  <text x="100" y="172" font-family="Arial, sans-serif" font-size="9" fill="#00C8FF" text-anchor="middle" letter-spacing="2" opacity="0.5">WARZONE</text>
+</svg>

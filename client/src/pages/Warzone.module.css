@@ -1,0 +1,242 @@
+/* ── Styles partagés (ex-CategoryPage.module.css) ── */
+.pageHeader {
+  border-bottom: 1px solid var(--gray-800);
+  padding: 3rem 0 2rem;
+  margin-bottom: 3rem;
+}
+
+.pageHeaderInner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.pageTitle {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 10vw, 7rem);
+  line-height: 0.9;
+  margin-top: 0.5rem;
+  color: var(--white-off);
+}
+
+.pageDesc {
+  font-size: 0.875rem;
+  color: var(--gray-400);
+  max-width: 50ch;
+  margin-top: 0.75rem;
+  line-height: 1.6;
+}
+
+.pageNumber {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--gray-600);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 4rem;
+  padding-bottom: 4rem;
+}
+
+.main {}
+
+.filters {
+  display: inline-flex;
+  gap: 0;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(242, 240, 235, 0.1);
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex-wrap: wrap;
+}
+
+.filters::-webkit-scrollbar { display: none; }
+
+.filterBtn {
+  font-family: 'Barlow Condensed', var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(242, 240, 235, 0.35);
+  padding: 8px 20px;
+  background: transparent;
+  border: none;
+  border-right: 1px solid rgba(242, 240, 235, 0.1);
+  transition: color 0.15s ease, background 0.15s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.filterBtn:last-child { border-right: none; }
+
+.filterBtn:hover {
+  color: var(--white-off);
+  background: rgba(242, 240, 235, 0.05);
+}
+
+.filterBtnActive {
+  color: #000 !important;
+  background: var(--accent) !important;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skeletonRow {
+  height: 80px;
+  background: var(--gray-800);
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--gray-800);
+  margin-top: 1rem;
+}
+
+.pageBtn {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--white-off);
+  border: 1px solid var(--gray-800);
+  padding: 0.5rem 1rem;
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.pageBtn:hover:not(:disabled) { border-color: var(--white-off); }
+
+.pageBtn:disabled {
+  color: var(--gray-600);
+  border-color: var(--gray-800);
+}
+
+.pageInfo {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--gray-400);
+  flex: 1;
+  text-align: center;
+}
+
+.sidebar {
+  border-left: 1px solid var(--gray-800);
+  padding-left: 2rem;
+}
+
+.sidebarSection { margin-bottom: 3rem; }
+
+.sidebarTitle {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  color: var(--gray-400);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--gray-800);
+}
+
+.standingsTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.standingsTable th {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--gray-600);
+  text-align: left;
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid var(--gray-800);
+}
+
+.standingsTable td {
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--gray-800);
+  color: var(--gray-200);
+  vertical-align: middle;
+}
+
+.standingsTable tr:last-child td { border-bottom: none; }
+
+.rank {
+  font-family: var(--font-mono);
+  color: var(--gray-600) !important;
+  font-size: 0.7rem;
+  width: 24px;
+}
+
+.region {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--gray-600);
+}
+
+.win {
+  color: var(--accent) !important;
+  font-weight: 700;
+}
+
+.loss { color: var(--gray-600) !important; }
+
+@media (max-width: 1024px) {
+  .layout { grid-template-columns: 1fr; }
+
+  .sidebar {
+    border-left: none;
+    border-top: 1px solid var(--gray-800);
+    padding-left: 0;
+    padding-top: 2rem;
+  }
+
+  .standingsTable { max-width: 400px; }
+}
+
+@media (max-width: 640px) {
+  .pageHeaderInner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ── Styles Warzone spécifiques ── */
+.header {
+  background-image:
+    linear-gradient(to bottom,
+      rgba(0,0,0,0.55) 0%,
+      rgba(0,0,0,0.28) 40%,
+      rgba(0,0,0,0.92) 100%
+    ),
+    url('/bg-warzone.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  padding: 4rem 0 2.5rem;
+}
+
+.standingsSubtitle {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: rgba(242, 240, 235, 0.3);
+  letter-spacing: 0.08em;
+  margin: -0.5rem 0 1rem;
+}

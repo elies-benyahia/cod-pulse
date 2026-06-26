@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#0a0a0f"/>
+  <!-- Diamond shape -->
+  <polygon points="100,18 165,75 130,155 70,155 35,75" fill="none" stroke="#00A3FF" stroke-width="3"/>
+  <polygon points="100,30 152,78 122,145 78,145 48,78" fill="#00A3FF" opacity="0.12"/>
+  <!-- Falcon stylized wings -->
+  <path d="M60,75 Q80,55 100,70 Q120,55 140,75 Q120,80 100,90 Q80,80 60,75Z" fill="#00A3FF" opacity="0.9"/>
+  <path d="M100,70 L100,120" stroke="#00A3FF" stroke-width="3.5"/>
+  <!-- Eyes -->
+  <circle cx="93" cy="76" r="3" fill="#fff"/>
+  <circle cx="107" cy="76" r="3" fill="#fff"/>
+  <!-- Text -->
+  <text x="100" y="167" font-family="Arial Black, sans-serif" font-size="15" font-weight="900" fill="#00A3FF" text-anchor="middle" letter-spacing="2">FALCONS</text>
+  <text x="100" y="185" font-family="Arial, sans-serif" font-size="9" fill="#00A3FF" text-anchor="middle" letter-spacing="1" opacity="0.55">TEAM</text>
+</svg>

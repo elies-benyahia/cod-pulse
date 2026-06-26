@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#1a1a1a"/>
+  <!-- Hexagone abeille -->
+  <polygon points="100,20 148,47.5 148,102.5 100,130 52,102.5 52,47.5" fill="none" stroke="#FFDE00" stroke-width="4"/>
+  <!-- Abeille stylisée centre -->
+  <ellipse cx="100" cy="75" rx="16" ry="22" fill="#FFDE00"/>
+  <ellipse cx="82" cy="62" rx="12" ry="8" fill="#FFDE00" opacity="0.7" transform="rotate(-30,82,62)"/>
+  <ellipse cx="118" cy="62" rx="12" ry="8" fill="#FFDE00" opacity="0.7" transform="rotate(30,118,62)"/>
+  <line x1="100" y1="53" x2="100" y2="97" stroke="#1a1a1a" stroke-width="2.5"/>
+  <line x1="88" y1="60" x2="112" y2="60" stroke="#1a1a1a" stroke-width="2.5"/>
+  <line x1="86" y1="75" x2="114" y2="75" stroke="#1a1a1a" stroke-width="2.5"/>
+  <line x1="88" y1="90" x2="112" y2="90" stroke="#1a1a1a" stroke-width="2.5"/>
+  <!-- Texte -->
+  <text x="100" y="155" font-family="Arial Black, sans-serif" font-size="16" font-weight="900" fill="#FFDE00" text-anchor="middle" letter-spacing="3">VITALITY</text>
+  <text x="100" y="178" font-family="Arial, sans-serif" font-size="10" fill="#FFDE00" text-anchor="middle" letter-spacing="1" opacity="0.6">WARZONE</text>
+</svg>
