@@ -10,7 +10,7 @@ Projet réalisé dans le cadre du titre professionnel **DWWM (Développeur Web e
 
 | Couche | Technologies |
 |--------|-------------|
-| Front-end | React 18, Vite, CSS Modules, React Router DOM v6, Axios |
+| Front-end | React 19, Vite, CSS Modules, React Router DOM v7, motion/react |
 | Back-end | Node.js, Express, architecture MVC |
 | BDD | MySQL 8, Prisma ORM (schéma 3NF) |
 | Auth | JWT, Bcrypt |
@@ -101,8 +101,9 @@ docker compose build && docker compose up -d
 | GET | `/api/teams` | — | Équipes par `category` |
 | GET | `/api/teams/players` | — | Joueurs par `team_id` |
 | GET | `/api/matches` | — | Matchs par `category` |
+| POST | `/api/auth/register` | — | Inscription (email + password ≥ 8 chars, 1 maj, 1 chiffre) |
 | POST | `/api/auth/login` | — | Authentification JWT |
-| GET | `/api/auth/me` | JWT | Profil utilisateur |
+| GET | `/api/auth/me` | JWT | Profil utilisateur connecté |
 | POST | `/api/scraper/trigger` | Admin JWT | Lancer un scraping manuel |
 | GET | `/api/scraper/status` | Admin JWT | Statut du scraper |
 | GET | `/api/health` | — | Santé de l'API |
@@ -143,11 +144,13 @@ npm test
 ```
 
 Couvre :
-- `articleService.slugify()` — transformation en slug
-- API `GET /api/articles` — liste et pagination
+- `articleService.slugify()` — 7 tests unitaires (accents, longueur, unicité)
+- API `GET /api/articles` — liste, pagination, filtres
 - API `GET /api/articles/:slug` — 404 pour slug inexistant
-- API `POST /api/auth/login` — 401 pour mauvais identifiants
+- API `POST /api/auth/register` — validation mot de passe, email dupliqué, 201 succès
+- API `POST /api/auth/login` — 401 mauvais identifiants, 422 validation
 - API `POST /api/articles` — 401 sans token JWT
+- API `GET /api/health` — santé de l'API
 
 ---
 

@@ -102,7 +102,7 @@
   font-family: var(--font-display);
   font-size: clamp(12rem, 30vw, 28rem);
   line-height: 1;
-  color: rgba(255,255,255,0.018);
+  color: rgba(86,128,233,0.06);
   pointer-events: none;
   user-select: none;
   letter-spacing: -0.05em;
@@ -124,7 +124,7 @@
   font-weight: 700;
   letter-spacing: 0.2em;
   background: var(--accent);
-  color: #000;
+  color: #fff;
   padding: 0 12px;
   height: 100%;
   display: flex;
@@ -183,7 +183,7 @@
 .tickerSr {
   font-family: var(--font-mono);
   font-size: 0.6rem;
-  color: rgba(242,240,235,0.2);
+  color: var(--text-muted);
 }
 
 /* ══ STANDINGS ════════════════════════════════════════════════ */

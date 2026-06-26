@@ -22,7 +22,8 @@ jest.mock('../services/prismaClient', () => ({
     findUnique: jest.fn().mockResolvedValue(null)
   },
   user: {
-    findUnique: jest.fn().mockResolvedValue(null)
+    findUnique: jest.fn().mockResolvedValue(null),
+    create: jest.fn()
   },
   team: {
     findMany: jest.fn().mockResolvedValue([])
@@ -146,5 +147,72 @@ describe('GET /api/health', () => {
     expect(res.status).toBe(200);
     expect(res.body.status).toBe('ok');
     expect(res.body).toHaveProperty('timestamp');
+  });
+});
+
+describe('POST /api/auth/register', () => {
+  test('retourne 422 si email invalide', async () => {
+    // Entrée : email malformé
+    // Résultat attendu : 422 Validation failed
+    const res = await request(app)
+      .post('/api/auth/register')
+      .send({ email: 'pasunemail', password: 'Password1' });
+    expect(res.status).toBe(422);
+    expect(res.body.error).toBe('Validation failed');
+  });
+
+  test('retourne 422 si mot de passe trop court (< 8 chars)', async () => {
+    // Entrée : password de 5 caractères
+    // Résultat attendu : 422 avec détail du champ password
+    const res = await request(app)
+      .post('/api/auth/register')
+      .send({ email: 'test@test.fr', password: 'Ab1' });
+    expect(res.status).toBe(422);
+    expect(res.body.details.some(d => d.field === 'password')).toBe(true);
+  });
+
+  test('retourne 422 si mot de passe sans majuscule', async () => {
+    const res = await request(app)
+      .post('/api/auth/register')
+      .send({ email: 'test@test.fr', password: 'password123' });
+    expect(res.status).toBe(422);
+  });
+
+  test('retourne 422 si mot de passe sans chiffre', async () => {
+    const res = await request(app)
+      .post('/api/auth/register')
+      .send({ email: 'test@test.fr', password: 'PasswordSansChiffre' });
+    expect(res.status).toBe(422);
+  });
+
+  test('retourne 409 si email déjà utilisé', async () => {
+    // Entrée : email existant en BDD (mock retourne un user)
+    // Résultat attendu : 409 Conflict
+    const prisma = require('../services/prismaClient');
+    prisma.user.findUnique.mockResolvedValueOnce({ id: 1, email: 'exist@test.fr' });
+
+    const res = await request(app)
+      .post('/api/auth/register')
+      .send({ email: 'exist@test.fr', password: 'Password123' });
+    expect(res.status).toBe(409);
+    expect(res.body).toHaveProperty('error');
+  });
+
+  test('retourne 201 avec token et user pour données valides', async () => {
+    // Entrée : email unique + mot de passe valide
+    // Résultat attendu : 201 + { token, user: { id, email, role } }
+    const prisma = require('../services/prismaClient');
+    prisma.user.findUnique.mockResolvedValueOnce(null); // email libre
+    prisma.user.create.mockResolvedValueOnce({
+      id: 42, email: 'nouveau@test.fr', role: 'editor', createdAt: new Date()
+    });
+
+    const res = await request(app)
+      .post('/api/auth/register')
+      .send({ email: 'nouveau@test.fr', password: 'Password123' });
+    expect(res.status).toBe(201);
+    expect(res.body).toHaveProperty('token');
+    expect(res.body.user).toHaveProperty('email', 'nouveau@test.fr');
+    expect(res.body.user).not.toHaveProperty('passwordHash');
   });
 });

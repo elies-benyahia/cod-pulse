@@ -1,6 +1,6 @@
 /* ── Styles partagés (ex-CategoryPage.module.css) ── */
 .pageHeader {
-  border-bottom: 1px solid var(--gray-800);
+  border-bottom: 1px solid var(--border);
   padding: 3rem 0 2rem;
   margin-bottom: 3rem;
 }
@@ -17,12 +17,12 @@
   font-size: clamp(3rem, 10vw, 7rem);
   line-height: 0.9;
   margin-top: 0.5rem;
-  color: var(--white-off);
+  color: var(--text);
 }
 
 .pageDesc {
   font-size: 0.875rem;
-  color: var(--gray-400);
+  color: var(--text-dim);
   max-width: 50ch;
   margin-top: 0.75rem;
   line-height: 1.6;
@@ -31,7 +31,7 @@
 .pageNumber {
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: var(--gray-600);
+  color: var(--text-muted);
   letter-spacing: 0.1em;
   white-space: nowrap;
 }
@@ -49,7 +49,7 @@
   display: inline-flex;
   gap: 0;
   margin-bottom: 2rem;
-  border: 1px solid rgba(242, 240, 235, 0.1);
+  border: 1px solid var(--border);
   overflow-x: auto;
   scrollbar-width: none;
   flex-wrap: wrap;
@@ -63,11 +63,11 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(242, 240, 235, 0.35);
+  color: var(--text-muted);
   padding: 8px 20px;
   background: transparent;
   border: none;
-  border-right: 1px solid rgba(242, 240, 235, 0.1);
+  border-right: 1px solid var(--border);
   transition: color 0.15s ease, background 0.15s ease;
   cursor: pointer;
   white-space: nowrap;
@@ -76,12 +76,12 @@
 .filterBtn:last-child { border-right: none; }
 
 .filterBtn:hover {
-  color: var(--white-off);
-  background: rgba(242, 240, 235, 0.05);
+  color: var(--text);
+  background: var(--surface);
 }
 
 .filterBtnActive {
-  color: #000 !important;
+  color: #fff !important;
   background: var(--accent) !important;
 }
 
@@ -93,7 +93,7 @@
 
 .skeletonRow {
   height: 80px;
-  background: var(--gray-800);
+  background: var(--bg-2);
   animation: shimmer 1.4s ease-in-out infinite;
 }
 
@@ -107,7 +107,7 @@
   align-items: center;
   gap: 2rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--gray-800);
+  border-top: 1px solid var(--border);
   margin-top: 1rem;
 }
 
@@ -115,29 +115,29 @@
   font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.12em;
-  color: var(--white-off);
-  border: 1px solid var(--gray-800);
+  color: var(--text);
+  border: 1px solid var(--border);
   padding: 0.5rem 1rem;
   transition: border-color var(--transition), color var(--transition);
 }
 
-.pageBtn:hover:not(:disabled) { border-color: var(--white-off); }
+.pageBtn:hover:not(:disabled) { border-color: var(--accent-cdl); color: var(--accent-cdl); }
 
 .pageBtn:disabled {
-  color: var(--gray-600);
-  border-color: var(--gray-800);
+  color: var(--text-muted);
+  border-color: var(--border);
 }
 
 .pageInfo {
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  color: var(--gray-400);
+  color: var(--text-dim);
   flex: 1;
   text-align: center;
 }
 
 .sidebar {
-  border-left: 1px solid var(--gray-800);
+  border-left: 1px solid var(--border);
   padding-left: 2rem;
 }
 
@@ -147,10 +147,10 @@
   font-family: var(--font-display);
   font-size: 1rem;
   letter-spacing: 0.1em;
-  color: var(--gray-400);
+  color: var(--text-dim);
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--gray-800);
+  border-bottom: 1px solid var(--border);
 }
 
 .standingsTable {
@@ -163,16 +163,16 @@
   font-family: var(--font-mono);
   font-size: 0.6rem;
   letter-spacing: 0.1em;
-  color: var(--gray-600);
+  color: var(--text-muted);
   text-align: left;
   padding: 0.4rem 0.5rem;
-  border-bottom: 1px solid var(--gray-800);
+  border-bottom: 1px solid var(--border);
 }
 
 .standingsTable td {
   padding: 0.6rem 0.5rem;
-  border-bottom: 1px solid var(--gray-800);
-  color: var(--gray-200);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-dim);
   vertical-align: middle;
 }
 
@@ -180,7 +180,7 @@
 
 .rank {
   font-family: var(--font-mono);
-  color: var(--gray-600) !important;
+  color: var(--text-muted) !important;
   font-size: 0.7rem;
   width: 24px;
 }
@@ -189,22 +189,22 @@
   display: block;
   font-family: var(--font-mono);
   font-size: 0.6rem;
-  color: var(--gray-600);
+  color: var(--text-muted);
 }
 
 .win {
-  color: var(--accent) !important;
+  color: var(--accent-cdl) !important;
   font-weight: 700;
 }
 
-.loss { color: var(--gray-600) !important; }
+.loss { color: var(--text-muted) !important; }
 
 @media (max-width: 1024px) {
   .layout { grid-template-columns: 1fr; }
 
   .sidebar {
     border-left: none;
-    border-top: 1px solid var(--gray-800);
+    border-top: 1px solid var(--border);
     padding-left: 0;
     padding-top: 2rem;
   }
@@ -224,9 +224,9 @@
   border-bottom-color: var(--accent-cdl);
   background-image:
     linear-gradient(to bottom,
-      rgba(0,0,0,0.62) 0%,
-      rgba(0,0,0,0.35) 40%,
-      rgba(0,0,0,0.92) 100%
+      rgba(248,249,252,0.85) 0%,
+      rgba(248,249,252,0.6) 40%,
+      rgba(248,249,252,0.97) 100%
     ),
     url('/bg-cdl-arena.jpg');
   background-size: cover;
@@ -235,7 +235,7 @@
 }
 
 .title {
-  color: var(--white-off);
+  color: var(--text);
 }
 
 .filterBtnActiveCDL {
@@ -253,7 +253,7 @@
 .sidebarSub {
   font-family: var(--font-body);
   font-size: 0.72rem;
-  color: rgba(242, 240, 235, 0.3);
+  color: var(--text-muted);
   letter-spacing: 0.02em;
 }
 
@@ -265,7 +265,7 @@
   font-family: var(--font-body);
   font-size: 0.68rem;
   letter-spacing: 0.05em;
-  color: rgba(242, 240, 235, 0.35);
+  color: var(--text-muted);
   margin-bottom: 0.5rem;
 }
 
@@ -289,7 +289,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(242, 240, 235, 0.35);
+  color: var(--text-muted);
   padding: 0.4rem 0.35rem;
   text-align: center;
   white-space: nowrap;
@@ -298,7 +298,7 @@
 .thTeam { text-align: left !important; }
 .thRank { min-width: 22px; }
 .thStat { min-width: 30px; }
-.thPts  { min-width: 38px; color: rgba(242, 240, 235, 0.5) !important; }
+.thPts  { min-width: 38px; color: var(--text-dim) !important; }
 
 .standingsTableFull td {
   font-family: var(--font-ui, 'Barlow Condensed', sans-serif);
@@ -312,23 +312,23 @@
   font-family: var(--font-ui, 'Barlow Condensed', sans-serif);
   font-size: 0.82rem;
   font-weight: 700;
-  color: rgba(242, 240, 235, 0.4);
+  color: var(--text-muted);
   min-width: 22px;
 }
 
 .statCell {
   font-weight: 600;
-  color: var(--white-off);
+  color: var(--text);
 }
 
 .statCellDim {
   font-weight: 400;
-  color: rgba(242, 240, 235, 0.35);
+  color: var(--text-muted);
 }
 
 .statCellPct {
   font-weight: 600;
-  color: rgba(242, 240, 235, 0.55);
+  color: var(--text-dim);
 }
 
 /* ── Standings rows ── */
@@ -337,7 +337,7 @@
 }
 
 .standingRow:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--surface);
 }
 
 .standingQualified td:first-child {
@@ -367,7 +367,7 @@
 .teamName {
   font-size: 0.82rem;
   font-weight: 500;
-  color: var(--white-off);
+  color: var(--text);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -380,7 +380,7 @@
 }
 
 .pts {
-  color: var(--white-off);
+  color: var(--text);
   font-weight: 800;
   font-family: var(--font-ui, 'Barlow Condensed', sans-serif) !important;
   font-size: 1rem !important;
@@ -390,7 +390,7 @@
 /* ── Match items ── */
 .matchItem {
   padding: 0.65rem 0;
-  border-bottom: 1px solid rgba(242, 240, 235, 0.05);
+  border-bottom: 1px solid var(--border);
 }
 
 .matchItem:last-child {
@@ -401,7 +401,7 @@
   display: block;
   font-family: var(--font-body);
   font-size: 0.68rem;
-  color: rgba(242, 240, 235, 0.3);
+  color: var(--text-muted);
   margin-bottom: 0.3rem;
   letter-spacing: 0.02em;
 }
@@ -417,7 +417,7 @@
   font-family: var(--font-body);
   font-size: 0.82rem;
   font-weight: 500;
-  color: rgba(242, 240, 235, 0.6);
+  color: var(--text-dim);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -428,7 +428,7 @@
 }
 
 .matchWinner {
-  color: var(--white-off);
+  color: var(--text);
   font-weight: 700;
 }
 
@@ -446,7 +446,7 @@
   display: flex;
   gap: 0.75rem;
   padding: 0.7rem 0;
-  border-bottom: 1px solid rgba(242, 240, 235, 0.05);
+  border-bottom: 1px solid var(--border);
   align-items: flex-start;
 }
 
@@ -466,7 +466,7 @@
 .agendaDay {
   font-family: var(--font-display);
   font-size: 0.9rem;
-  color: var(--white-off);
+  color: var(--text);
   line-height: 1;
   letter-spacing: 0.04em;
 }
@@ -486,8 +486,8 @@
 }
 
 .agendaTBD {
-  color: rgba(242, 240, 235, 0.3);
-  border-color: rgba(242, 240, 235, 0.15);
+  color: var(--text-muted);
+  border-color: var(--border);
 }
 
 .agendaInfo {
@@ -501,12 +501,12 @@
   font-family: var(--font-body);
   font-size: 0.82rem;
   font-weight: 600;
-  color: var(--white-off);
+  color: var(--text);
   line-height: 1.3;
 }
 
 .agendaTeams {
   font-family: var(--font-body);
   font-size: 0.72rem;
-  color: rgba(242, 240, 235, 0.35);
+  color: var(--text-muted);
 }

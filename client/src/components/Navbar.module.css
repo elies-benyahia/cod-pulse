@@ -3,12 +3,12 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
 }
 
 .header.scrolled {
-  background: #000;
+  background: var(--bg);
 }
 
 /* ── Inner ───────────────────────────────────────────────────────────────── */
@@ -32,16 +32,16 @@
 }
 
 .logoText {
-  font-family: 'Bebas Neue', var(--font-cod, sans-serif);
+  font-family: var(--font-main, sans-serif);
   font-size: 1.45rem;
-  font-weight: 400;
+  font-weight: 900;
   letter-spacing: 0.06em;
-  color: #fff;
+  color: var(--accent);
   line-height: 1;
 }
 
 .logoAccent {
-  color: #D4A017;
+  color: var(--violet);
 }
 
 .logoImg {
@@ -70,12 +70,12 @@
   gap: 6px;
   height: 52px;
   padding: 0 14px;
-  font-family: 'Barlow Condensed', var(--font-ui, sans-serif);
+  font-family: var(--font-main, sans-serif);
   font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--text-dim);
   text-decoration: none;
   white-space: nowrap;
   transition: color 0.18s ease;
@@ -83,15 +83,15 @@
 }
 
 .navLink:hover {
-  color: #fff;
+  color: var(--accent);
 }
 
 .navActive {
-  color: #D4A017;
+  color: var(--accent);
 }
 
 .navActive:hover {
-  color: #D4A017;
+  color: var(--accent);
 }
 
 /* ── Live dot ────────────────────────────────────────────────────────────── */
@@ -99,7 +99,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #FF2D2D;
+  background: var(--accent);
   flex-shrink: 0;
   animation: liveBlink 1.2s ease-in-out infinite;
 }
@@ -124,8 +124,8 @@
   font-family: var(--font-mono, monospace);
   font-size: 0.58rem;
   letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
   padding: 4px 8px;
   background: transparent;
   cursor: pointer;
@@ -133,8 +133,8 @@
 }
 
 .themeBtn:hover {
-  color: rgba(255, 255, 255, 0.7);
-  border-color: rgba(255, 255, 255, 0.25);
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 .themeIcon { font-size: 0.72rem; line-height: 1; }
@@ -145,8 +145,8 @@
   font-size: 0.58rem;
   font-weight: 500;
   letter-spacing: 0.15em;
-  color: #D4A017;
-  border: 1px solid rgba(212, 160, 23, 0.3);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
   padding: 4px 8px;
   background: transparent;
   cursor: pointer;
@@ -154,28 +154,28 @@
 }
 
 .langBtn:hover {
-  border-color: #D4A017;
-  color: #D4A017;
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .adminLink {
   font-family: var(--font-mono, monospace);
   font-size: 0.58rem;
   letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.25);
+  color: var(--text-muted);
   text-decoration: none;
   transition: color 0.18s;
 }
 
-.adminLink:hover  { color: rgba(255, 255, 255, 0.6); }
-.adminActive      { color: #D4A017 !important; }
+.adminLink:hover  { color: var(--accent); }
+.adminActive      { color: var(--accent) !important; }
 
 /* ── MatchTicker ─────────────────────────────────────────────────────────── */
 .ticker {
   width: 100%;
   height: 32px;
-  background: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--bg-1);
+  border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -187,13 +187,13 @@
   font-size: 0.58rem;
   font-weight: 500;
   letter-spacing: 0.18em;
-  color: #D4A017;
+  color: #fff;
   padding: 0 0.9rem;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid var(--border);
   height: 100%;
   display: flex;
   align-items: center;
-  background: #000;
+  background: var(--accent);
   z-index: 2;
 }
 
@@ -216,12 +216,12 @@
 
 .tickerTrack::before {
   left: 0;
-  background: linear-gradient(to right, #000, transparent);
+  background: linear-gradient(to right, var(--bg-1), transparent);
 }
 
 .tickerTrack::after {
   right: 0;
-  background: linear-gradient(to left, #000, transparent);
+  background: linear-gradient(to left, var(--bg-1), transparent);
 }
 
 .tickerRail {
@@ -247,37 +247,37 @@
   align-items: center;
   gap: 0.4rem;
   padding: 0 1.4rem;
-  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  border-right: 1px solid var(--border);
   height: 32px;
   flex-shrink: 0;
 }
 
 .tickerTeam {
-  font-family: var(--font-ui, 'Barlow Condensed', sans-serif);
+  font-family: var(--font-ui, sans-serif);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-dim);
   text-transform: uppercase;
 }
 
-.tickerWinner { color: rgba(255, 255, 255, 0.85); }
-.tickerLoser  { color: rgba(255, 255, 255, 0.25); }
+.tickerWinner { color: var(--text); }
+.tickerLoser  { color: var(--text-muted); }
 
 .tickerScore {
   font-family: var(--font-mono, monospace);
   font-size: 0.75rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--text-muted);
   min-width: 12px;
   text-align: center;
 }
 
-.tickerScoreWin { color: #D4A017; }
+.tickerScoreWin { color: var(--accent); }
 
 .tickerDash {
   font-size: 0.62rem;
-  color: rgba(255, 255, 255, 0.15);
+  color: var(--border-md);
 }
 
 .tickerVs {
@@ -285,13 +285,13 @@
   font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.2);
+  color: var(--text-muted);
 }
 
 .tickerEvent {
   font-family: var(--font-mono, monospace);
   font-size: 0.55rem;
-  color: rgba(255, 255, 255, 0.18);
+  color: var(--text-muted);
   letter-spacing: 0.04em;
   padding-left: 0.2rem;
 }
@@ -301,8 +301,8 @@
   font-size: 0.55rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: #D4A017;
-  border: 1px solid rgba(212, 160, 23, 0.4);
+  color: var(--accent);
+  border: 1px solid rgba(86,128,233,0.4);
   padding: 0.08em 0.35em;
 }
 
@@ -311,8 +311,8 @@
   font-size: 0.55rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-dim);
+  border: 1px solid var(--border);
   padding: 0.08em 0.35em;
 }
 

@@ -59,7 +59,7 @@ export default function Home() {
             <span>2026</span>
           </div>
 
-          <div style={{width:'100%',height:'1px',background:'rgba(255,255,255,0.06)',margin:'0 0 2rem'}} />
+          <div style={{width:'100%',height:'1px',background:'var(--border)',margin:'0 0 2rem'}} />
 
           <h1 className={styles.heroTitle}>
             <span className={styles.heroLine}>WARZONE</span>

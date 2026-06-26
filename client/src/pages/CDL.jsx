@@ -52,6 +52,13 @@ const UPCOMING = [
 const TEAM_LOGO = Object.fromEntries(CDL_TEAMS.map(t => [t.slug, t.logo]));
 const TEAM_COLOR = Object.fromEntries(CDL_TEAMS.map(t => [t.slug, t.primaryColor]));
 
+const FALLBACK_ARTICLES = [
+  { id: 'c1', slug: 'cdl-major-4-resultats', title: 'CDL Major 4 — Résultats complets et analyse', summary: "FaZe Vegas remporte le Major 4 face à OpTic Texas dans un match épique 3-2.", category: 'cdl', published_at: '2026-06-18', source_name: 'CodPulse' },
+  { id: 'c2', slug: 'optic-texas-roster-2026', title: 'OpTic Texas présente son roster complet 2026', summary: "L'organisation texane aligne un roster remanié avec l'arrivée d'un talent européen.", category: 'cdl', published_at: '2026-06-12', source_name: 'CodPulse' },
+  { id: 'c3', slug: 'cdl-standings-saison-4', title: 'CDL Standings mi-saison : FaZe Vegas en tête', summary: "Panorama des classements à mi-parcours de la saison 4 avec analyse des équipes.", category: 'cdl', published_at: '2026-06-08', source_name: 'CodPulse' },
+  { id: 'c4', slug: 'cdl-championships-2026-format', title: 'CDL Championships 2026 : format et qualifications annoncés', summary: "Activision dévoile le format du tournoi final de la saison, prévu en août à Las Vegas.", category: 'cdl', published_at: '2026-06-01', source_name: 'CodPulse' },
+];
+
 export default function CDL() {
   const [activeFilter, setActiveFilter] = useState('');
   const [page, setPage] = useState(1);
@@ -63,7 +70,8 @@ export default function CDL() {
     tag: activeFilter || undefined,
   });
 
-  const [featured, ...rest] = articles;
+  const displayedArticles = (!loading && articles.length === 0) ? FALLBACK_ARTICLES : articles;
+  const [featured, ...rest] = displayedArticles;
 
   return (
     <>

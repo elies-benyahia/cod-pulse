@@ -26,6 +26,13 @@ const WRS_STANDINGS = [
   { rank: 8, slug: 't1-wz',              name: 'T1',               region: 'ASIA', pts: 104,   color: '#CC0000' },
 ];
 
+const FALLBACK_ARTICLES = [
+  { id: 'f1', slug: 'warzone-meta-saison-4', title: 'Meta Warzone Saison 4 : les meilleures armes', summary: "Découvrez quelles armes dominent le classement cette saison et comment les monter.", category: 'warzone', published_at: '2026-06-15', source_name: 'CodPulse' },
+  { id: 'f2', slug: 'top-250-warzone-juin-2026', title: 'Top 250 Warzone — Juin 2026 : les joueurs à suivre', summary: "Analyse des 10 premiers joueurs du classement mondial Warzone Ranked ce mois-ci.", category: 'warzone', published_at: '2026-06-10', source_name: 'CodPulse' },
+  { id: 'f3', slug: 'warzone-ranked-guide-debutant', title: 'Guide Ranked Warzone pour débuter', summary: "Tous les conseils pour progresser efficacement en mode Ranked sur Warzone.", category: 'warzone', published_at: '2026-06-05', source_name: 'CodPulse' },
+  { id: 'f4', slug: 'warzone-nerf-smg-patch', title: 'Patch notes : nerf des SMGs et buff du fusil de précision', summary: "Raven Software déploie un patch équilibrant plusieurs armes du pool compétitif.", category: 'warzone', published_at: '2026-05-28', source_name: 'CodPulse' },
+];
+
 export default function Warzone() {
   const [activeFilter, setActiveFilter] = useState('');
   const [page, setPage] = useState(1);
@@ -37,7 +44,8 @@ export default function Warzone() {
     tag: activeFilter || undefined
   });
 
-  const [featured, ...rest] = articles;
+  const displayedArticles = (!loading && articles.length === 0) ? FALLBACK_ARTICLES : articles;
+  const [featured, ...rest] = displayedArticles;
 
   return (
     <>

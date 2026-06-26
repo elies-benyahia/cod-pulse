@@ -1,7 +1,7 @@
 /* ── Page header ────────────────────────────────────────────── */
 .pageHeader {
   padding: 3.5rem 0 2rem;
-  border-bottom: 1px solid rgba(242, 240, 235, 0.08);
+  border-bottom: 1px solid var(--border);
 }
 
 .overline {
@@ -17,7 +17,7 @@
   font-family: var(--font-display);
   font-size: clamp(4rem, 12vw, 9rem);
   line-height: 0.88;
-  color: var(--white-off);
+  color: var(--text);
   letter-spacing: 0.02em;
 }
 
@@ -26,7 +26,7 @@
   font-style: italic;
   font-weight: 300;
   font-size: clamp(0.95rem, 1.5vw, 1.2rem);
-  color: rgba(242, 240, 235, 0.35);
+  color: var(--text-muted);
   margin-top: 0.75rem;
   letter-spacing: 0.01em;
 }
@@ -36,7 +36,7 @@
   display: inline-flex;
   gap: 0;
   margin: 2rem 0 2.5rem;
-  border: 1px solid rgba(242, 240, 235, 0.12);
+  border: 1px solid var(--border);
   overflow: hidden;
 }
 
@@ -46,11 +46,11 @@
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(242, 240, 235, 0.3);
+  color: var(--text-muted);
   padding: 8px 28px;
   background: transparent;
   border: none;
-  border-right: 1px solid rgba(242, 240, 235, 0.12);
+  border-right: 1px solid var(--border);
   transition: color 0.15s ease, background 0.15s ease;
   cursor: pointer;
 }
@@ -58,12 +58,12 @@
 .gameTab:last-child { border-right: none; }
 
 .gameTab:hover {
-  color: var(--white-off);
-  background: rgba(242, 240, 235, 0.05);
+  color: var(--text);
+  background: var(--surface);
 }
 
 .gameTabActive {
-  color: #000 !important;
+  color: #fff !important;
   background: var(--accent) !important;
 }
 
@@ -90,7 +90,7 @@
   font-family: var(--font-display);
   font-size: 1.4rem;
   letter-spacing: 0.08em;
-  color: rgba(242, 240, 235, 0.6);
+  color: var(--text-dim);
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -114,7 +114,7 @@
   display: flex;
   gap: 0;
   flex-wrap: wrap;
-  border: 1px solid rgba(242, 240, 235, 0.1);
+  border: 1px solid var(--border);
   overflow: hidden;
 }
 
@@ -124,11 +124,11 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(242, 240, 235, 0.35);
+  color: var(--text-muted);
   padding: 7px 16px;
   background: transparent;
   border: none;
-  border-right: 1px solid rgba(242, 240, 235, 0.1);
+  border-right: 1px solid var(--border);
   transition: color 0.15s ease, background 0.15s ease;
   cursor: pointer;
   position: relative;
@@ -139,12 +139,12 @@
 }
 
 .catBtn:hover {
-  color: var(--white-off);
-  background: rgba(242, 240, 235, 0.05);
+  color: var(--text);
+  background: var(--surface);
 }
 
 .catBtnActive {
-  color: #000 !important;
+  color: #fff !important;
   background: var(--accent) !important;
   border-right-color: var(--accent);
 }
@@ -179,7 +179,7 @@
 .tierDesc {
   font-family: var(--font-body);
   font-size: 0.72rem;
-  color: rgba(242, 240, 235, 0.3);
+  color: var(--text-muted);
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -192,15 +192,15 @@
 
 /* ── Weapon card ────────────────────────────────────────────── */
 .weaponCard {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(242, 240, 235, 0.07);
+  background: var(--bg-1);
+  border: 1px solid var(--border);
   transition: border-color var(--transition), background var(--transition);
-  cursor: none;
+  cursor: pointer;
 }
 
 .weaponCard:hover {
-  border-color: rgba(212, 160, 23, 0.2);
-  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--accent);
+  background: var(--surface);
 }
 
 .proPick {
@@ -239,7 +239,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: brightness(0) invert(1);
+  filter: brightness(0) invert(0);
   opacity: 0.6;
 }
 
@@ -283,16 +283,16 @@
   font-size: 0.6rem;
   letter-spacing: 0.12em;
   color: var(--accent);
-  background: rgba(212, 160, 23, 0.1);
+  background: rgba(86, 128, 233, 0.08);
   padding: 1px 6px;
-  border: 1px solid rgba(212, 160, 23, 0.3);
+  border: 1px solid rgba(86, 128, 233, 0.25);
 }
 
 .pickRate {
   font-family: var(--font-mono);
   font-size: 0.6rem;
   letter-spacing: 0.05em;
-  color: rgba(242, 240, 235, 0.3);
+  color: var(--text-muted);
   margin-left: auto;
 }
 
@@ -316,7 +316,7 @@
   font-family: var(--font-display);
   font-size: 1.5rem;
   letter-spacing: 0.04em;
-  color: var(--white-off);
+  color: var(--text);
   line-height: 1;
   margin-bottom: 0.3rem;
 }
@@ -324,7 +324,7 @@
 .weaponSummary {
   font-family: var(--font-body);
   font-size: 0.78rem;
-  color: rgba(242, 240, 235, 0.45);
+  color: var(--text-dim);
   line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -351,7 +351,7 @@
   font-family: var(--font-mono);
   font-size: 0.58rem;
   letter-spacing: 0.08em;
-  color: rgba(242, 240, 235, 0.3);
+  color: var(--text-muted);
   width: 34px;
   flex-shrink: 0;
 }
@@ -359,7 +359,7 @@
 .statBarWrap {
   flex: 1;
   height: 3px;
-  background: rgba(242, 240, 235, 0.07);
+  background: var(--bg-2);
 }
 
 .statBarFill {
@@ -371,7 +371,7 @@
   font-family: var(--font-mono);
   font-size: 0.62rem;
   letter-spacing: 0.05em;
-  color: rgba(242, 240, 235, 0.35);
+  color: var(--text-muted);
   margin-top: 0.25rem;
 }
 
@@ -381,7 +381,7 @@
 
 .expandIcon {
   font-size: 0.65rem;
-  color: rgba(242, 240, 235, 0.25);
+  color: var(--text-muted);
   flex-shrink: 0;
   padding: 0 0.25rem;
 }
@@ -389,8 +389,8 @@
 /* ── Expanded detail ────────────────────────────────────────── */
 .weaponDetail {
   padding: 1rem 1rem 1rem 136px;
-  border-top: 1px solid rgba(242, 240, 235, 0.05);
-  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid var(--border);
+  background: var(--bg-1);
 }
 
 @media (max-width: 768px) {
@@ -416,8 +416,8 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(242, 240, 235, 0.04);
-  border: 1px solid rgba(242, 240, 235, 0.08);
+  background: var(--surface);
+  border: 1px solid var(--border);
   padding: 3px 10px;
 }
 
@@ -430,7 +430,7 @@
 .buildSlotName {
   font-family: var(--font-body);
   font-size: 0.75rem;
-  color: rgba(242, 240, 235, 0.7);
+  color: var(--text-dim);
 }
 
 .fullStats {
@@ -449,7 +449,7 @@
 .fullStat span {
   font-family: var(--font-mono);
   font-size: 0.62rem;
-  color: rgba(242, 240, 235, 0.3);
+  color: var(--text-muted);
   letter-spacing: 0.05em;
   white-space: nowrap;
 }
@@ -462,14 +462,14 @@
 }
 
 .mapCard {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(242, 240, 235, 0.07);
+  background: var(--bg-1);
+  border: 1px solid var(--border);
   padding: 1rem;
   transition: border-color var(--transition);
 }
 
 .mapCard:hover {
-  border-color: rgba(255, 58, 26, 0.2);
+  border-color: var(--accent-cdl);
 }
 
 .mapVeto {
@@ -487,14 +487,14 @@
   font-family: var(--font-display);
   font-size: 1.2rem;
   letter-spacing: 0.05em;
-  color: var(--white-off);
+  color: var(--text);
 }
 
 .vetoTag {
   font-family: var(--font-mono);
   font-size: 0.58rem;
   letter-spacing: 0.1em;
-  color: rgba(255, 58, 26, 0.7);
+  color: rgba(255, 58, 26, 0.8);
   border: 1px solid rgba(255, 58, 26, 0.3);
   padding: 1px 6px;
 }
@@ -510,16 +510,16 @@
   font-family: var(--font-mono);
   font-size: 0.6rem;
   letter-spacing: 0.06em;
-  color: rgba(255, 58, 26, 0.7);
-  background: rgba(255, 58, 26, 0.06);
+  color: var(--accent);
+  background: rgba(86, 128, 233, 0.07);
   padding: 2px 8px;
-  border: 1px solid rgba(255, 58, 26, 0.15);
+  border: 1px solid rgba(86, 128, 233, 0.18);
 }
 
 .mapNotes {
   font-family: var(--font-body);
   font-size: 0.74rem;
-  color: rgba(242, 240, 235, 0.4);
+  color: var(--text-dim);
   line-height: 1.5;
 }
 
@@ -531,14 +531,14 @@
 }
 
 .loadoutCard {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(242, 240, 235, 0.07);
+  background: var(--bg-1);
+  border: 1px solid var(--border);
   padding: 1rem;
   transition: border-color var(--transition);
 }
 
 .loadoutCard:hover {
-  border-color: rgba(212, 160, 23, 0.2);
+  border-color: var(--accent);
 }
 
 .loadoutHeader {
@@ -552,7 +552,7 @@
   font-family: var(--font-display);
   font-size: 0.95rem;
   letter-spacing: 0.08em;
-  color: rgba(242, 240, 235, 0.5);
+  color: var(--text-dim);
 }
 
 .loadoutWeapons {
@@ -566,25 +566,25 @@
   font-family: var(--font-display);
   font-size: 1.2rem;
   letter-spacing: 0.04em;
-  color: var(--white-off);
+  color: var(--text);
 }
 
 .loadoutPlus {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: rgba(242, 240, 235, 0.3);
+  color: var(--text-muted);
 }
 
 .loadoutSecondary {
   font-family: var(--font-display);
   font-size: 1.2rem;
   letter-spacing: 0.04em;
-  color: rgba(242, 240, 235, 0.6);
+  color: var(--text-dim);
 }
 
 .loadoutDesc {
   font-family: var(--font-body);
   font-size: 0.74rem;
-  color: rgba(242, 240, 235, 0.4);
+  color: var(--text-dim);
   line-height: 1.5;
 }

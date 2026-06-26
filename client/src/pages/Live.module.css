@@ -285,16 +285,17 @@
 .card {
   display: flex;
   flex-direction: column;
-  background: var(--bg-1);
+  background: var(--bg);
+  border: 1px solid var(--border);
   text-decoration: none;
   color: inherit;
   overflow: hidden;
   position: relative;
-  transition: background var(--transition);
+  transition: background var(--transition), border-color var(--transition);
 }
 
 .card:hover {
-  background: var(--bg-2);
+  background: var(--surface);
 }
 
 .cardAccent {
@@ -304,11 +305,12 @@
 }
 
 .cardLive {
-  background: rgba(255, 45, 45, 0.04);
+  border-color: var(--accent);
+  background: var(--bg);
 }
 
 .cardLive:hover {
-  background: rgba(255, 45, 45, 0.07);
+  background: var(--surface);
 }
 
 .cardOffline {
@@ -362,7 +364,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  background: #FF2D2D;
+  background: var(--accent);
   padding: 2px 6px;
   font-family: var(--font-mono);
   font-size: 0.55rem;

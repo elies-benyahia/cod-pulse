@@ -7,6 +7,17 @@ const { loginRateLimiter } = require('../middlewares/rateLimit');
 
 const router = Router();
 
+router.post('/register',
+  [
+    body('email').isEmail().normalizeEmail(),
+    body('password').isLength({ min: 8 }).withMessage('Password must be at least 8 characters')
+      .matches(/[A-Z]/).withMessage('Password must contain an uppercase letter')
+      .matches(/[0-9]/).withMessage('Password must contain a number')
+  ],
+  validate,
+  controller.register
+);
+
 router.post('/login',
   loginRateLimiter,
   [
